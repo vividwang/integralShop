@@ -1,4 +1,6 @@
 import React from 'react';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 import "./style.scss";
 
 interface CardProps {
@@ -20,8 +22,8 @@ export function Card(props: CardProps) {
         <div className="title">{props.title}</div>
         <div className="intro">{props.intro}</div>
         <div className="footer">
-          <span>¥ { props.price }</span>
-          <span onClick={() =>props.addCart(props)}>加入购物车</span>
+          <span className="price">¥ { props.price }</span>
+          <span className="cart" onClick={() =>props.addCart(props)}> <AddCircleIcon /> </span>
         </div>
       </div>
     </div>

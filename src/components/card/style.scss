@@ -1,14 +1,46 @@
 .card-wrapper {
+  margin-bottom: 15px;
   display: grid;
   grid-template-columns: 30% 1fr;
-  grid-template-rows: 80px;
+  grid-template-rows: 88px;
+  box-shadow: rgb(0 0 0 / 20%) 0 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  border-radius: 4px;
 
   & .img-display {
 
     & img {
       width: 100%;
-      height: 60px;
-      margin-top: 10px;
+      height: 88px;
+      border-radius: 3px;
+    }
+  }
+
+  & .content {
+    padding: 0 15px;
+
+    & .title {
+      font-weight: 600;
+    }
+
+    & .intro {
+      font-size: 14px;
+      height: 36px;
+      color: lightgray;
+    }
+
+    & .footer {
+      & .price {
+        display: inline-block;
+        width: 30%;
+      }
+
+      & .cart {
+        display: inline-block;
+        width: 70%;
+        color: rgb(25, 118, 210);
+        vertical-align: middle;
+        text-align: right;
+      }
     }
   }
 }
