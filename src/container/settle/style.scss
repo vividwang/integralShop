@@ -1,0 +1,40 @@
+.settle-wrapper {
+  margin-top: 50px;
+  & .show-cart {
+    max-height: 70%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  & .operators {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 62px;
+  }
+
+  & .list-item-container {
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    grid-template-rows: 50px;
+    box-shadow: 1px 1px 1px #dddde3;
+
+    & .list-item-info-count {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    & .list-item-info-price {
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+
+  .sum {
+    display: grid;
+    grid-template-columns:repeat(2, 50%);
+  }
+}

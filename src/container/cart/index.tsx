@@ -1,71 +1,67 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
-  Box,
-  CardMedia,
-  CardContent,
-  Typography,
-  IconButton,
-  Fab, Button,
+  Button,
 } from '@mui/material';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
-import AddIcon from '@mui/icons-material/Add';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import {useTheme} from '@mui/material/styles';
+import { useHistory } from "react-router-dom";
+
 
 import {Card} from '../../components/card';
 import { Header } from '../../components/header';
-import {useStore} from './store';
+import {useStore} from '../../store/cart.store';
 import './style.scss';
 
 export function Cart(props: any) {
-  const theme = useTheme();
+  const history = useHistory();
   const state = useStore(state => state);
 
+  useEffect(() => {
+    state.getCart();
+  }, [])
+
   return <>
-    <Header title="购物车"/>
+    <Header title="购物车" returnTitle="返回首页" path="/"/>
     <div className="cards-wrapper">
       <Card
-        id='123'
+        id='1'
         img={require('../../../public/asserts/apple.jpg')}
         title="Apple"
         intro="A apple in spring."
-        price={10}
+        price={12}
         addCart={(item) => state.addCart(item)}/>
       <Card
-        id='123'
+        id='2'
         img={require('../../../public/asserts/apple.jpg')}
         title="Apple"
         intro="A apple in spring."
-        price={10}
+        price={33}
         addCart={(item) => state.addCart(item)}/>
       <Card
-        id='123'
+        id='3'
         img={require('../../../public/asserts/apple.jpg')}
         title="Apple"
         intro="A apple in spring."
-        price={10}
+        price={19}
         addCart={(item) => state.addCart(item)}/>
       <Card
-        id='123'
+        id='4'
         img={require('../../../public/asserts/apple.jpg')}
         title="Apple"
         intro="A apple in spring."
-        price={10}
+        price={72}
         addCart={(item) => state.addCart(item)}/>
     </div>
     <div className="settle-accounts">
       <div className="cart-icon">
         <LocalMallIcon />
-        <div className="budge">3</div>
+        <div className="budge">{state.cart.length}</div>
       </div>
       <div className="value-wrapper">
-        <div className="price"><span style={{ fontSize: '14px' }}>¥</span> 52</div>
-        <div className="count">共三件</div>
+        <div className="price"><span style={{ fontSize: '14px' }}>¥</span> {state.price}</div>
+        <div className="count">共{state.count}件</div>
       </div>
       <div className="calculate">
-        <Button type="primary" variant="outlined">结算</Button>
+        <Button disabled={!state.cart.length} onClick={() =>history.push('/settle')} variant="contained" color="primary">结算</Button>
       </div>
     </div>
   </>

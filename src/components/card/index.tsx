@@ -9,7 +9,7 @@ interface CardProps {
   title: string,
   intro: string,
   price: number,
-  addCart: (item: CardProps) => void,
+  addCart: (item: {id: string, title: string, price: number}) => void,
 }
 
 export function Card(props: CardProps) {
@@ -23,7 +23,7 @@ export function Card(props: CardProps) {
         <div className="intro">{props.intro}</div>
         <div className="footer">
           <span className="price">¥ { props.price }</span>
-          <span className="cart" onClick={() =>props.addCart(props)}> <AddCircleIcon /> </span>
+          <span className="cart" onClick={() =>props.addCart({ id: props.id, title: props.title, price: props.price})}> <AddCircleIcon /> </span>
         </div>
       </div>
     </div>
