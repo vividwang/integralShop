@@ -3,6 +3,7 @@ const HtmlWebpackPlugin    = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const { resolve }          = require('path');
+const Dotenv               = require('dotenv-webpack');
 
 
 // const swPrecacheWebpackPlugin = new SWPrecacheWebpackPlugin();
@@ -59,10 +60,12 @@ module.exports = {
     modules: [resolve(__dirname, './src'), 'node_modules'],
     alias: {
         '@': resolve(__dirname, '/'),
-        '@api': resolve(__dirname, 'src/api')
+        '@api': resolve(__dirname, 'src/api'),
+        '@lib': resolve(__dirname, 'src/lib'),
       }
   },
   plugins: [
+    new Dotenv(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
@@ -84,14 +87,14 @@ module.exports = {
   devServer: {
     contentBase: resolve(__dirname, './'),
     // publicPath: '/dist/',
-    // host: '0.0.0.0',
+    host: '0.0.0.0',
     compress: true,
     hot: true,
     port: 6555,
     open: true,
     historyApiFallback: true,
     // proxy: {
-    //   '/': 'http://localhost:3000'
+    //   '/': 'http://localhost:3003'
     // }
   }
 };

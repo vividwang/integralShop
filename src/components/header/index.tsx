@@ -8,8 +8,8 @@ import './style.scss';
 
 interface HeaderProps {
   title: string,
-  returnTitle: string,
-  path: string,
+  returnTitle?: string,
+  path?: string,
 }
 
 export const Header = function (props: HeaderProps) {

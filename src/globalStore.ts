@@ -1,11 +1,22 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-
 let store: any = (set) => ({
   user: {},
-  login: () => {
+  login: async () => {
+    const res = await fetch('/user/login', {
+      method: 'POST',
+    }).then(res => res.json());
 
+    if (!res.code) {
+      set({
+        user: {
+          id: ''
+        }
+      })
+    } else {
+      throw new Error(res.msg);
+    }
   },
   logout: () => {
 

@@ -1,0 +1,14 @@
+{
+  "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
+    "tsx",
+    "typescript",
+    "scss"
+  ],
+  "eablokker.tabsSidebar.config.customTabOrder" : [
+    "\/Users\/w\/Documents\/sparetime\/integralShop\/src\/index.tsx",
+    "\/Users\/w\/Documents\/sparetime\/integralShop\/src\/router.tsx",
+    "\/Users\/w\/Documents\/sparetime\/integralShop\/src\/globalStore.ts",
+    "\/Users\/w\/Documents\/sparetime\/integralShop\/src\/container\/cart\/style.scss",
+    "\/Users\/w\/Documents\/sparetime\/integralShop\/src\/container\/cart\/index.tsx"
+  ]
+}

@@ -1,0 +1,42 @@
+.user-info-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 15% 30% 23% 1fr;
+  height: 60px;
+  line-height: 60px;
+
+  & .emotion-select-wrapper {
+    position: absolute;
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    top: 50px;
+    left: 50px;
+    background-color: rgb(179, 249, 243);
+
+    & div {
+      text-align: center;
+    }
+  }
+
+  .user-info-image {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: black;
+  }
+
+  .user-info-operator {
+    div {
+      // min-width: 40px;
+      // max-width: 60px;
+      width: auto;
+      height: 30px;
+      line-height: 30px;
+      text-align: right;
+      padding: 0 10px;
+    }
+  }
+}

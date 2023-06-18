@@ -1,6 +1,18 @@
-.login-container {
-  width: 80%;
-  margin: 50% auto;
-  display: flex;
-  justify-content: center;
+.login-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../public/asserts/login-logo2.jpg");
+  background-size: contain;
+  background-repeat: round;
+  background-position-x: center;
+
+  .login-container {
+    position: relative;
+    width: 80%;
+    margin: 50% auto;
+    display: flex;
+    justify-content: center;
+//    transform: scale(1.1);
+  }
 }

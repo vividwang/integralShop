@@ -14,7 +14,7 @@ interface Options {
  * @returns Promise<any>
  */
  export const request = async (requestUrl, options: Options = {}) => {
-  const userInfo = JSON.parse(localStorage.getItem('RED_HOUSE_USERINFO'));
+  const userInfo = JSON.parse(localStorage.getItem('INTEGRAL_SHOP_USER_INFO'));
   const url = process.env.HOST ? process.env.HOST + requestUrl : requestUrl ;
 
   if (userInfo) {
@@ -26,7 +26,7 @@ interface Options {
       }
       if (res.status === 401) {
         window.location.href = '/login?info=401';
-        localStorage.removeItem('RED_HOUSE_USERINFO');
+        localStorage.removeItem('INTEGRAL_SHOP_USER_INFO');
       } else if (res.headers.get('Content-Type').startsWith('text/plain')){
         return res.text();
       } else {
@@ -39,7 +39,7 @@ interface Options {
 }
 
 export const requestWithBlob = async (requestUrl, options: Options = {}) => {
-  const userInfo = JSON.parse(localStorage.getItem('RED_HOUSE_USERINFO'));
+  const userInfo = JSON.parse(localStorage.getItem('INTEGRAL_SHOP_USER_INFO'));
   const url = process.env.HOST ? process.env.HOST + requestUrl : requestUrl ;
 
   if (userInfo) {
@@ -48,7 +48,7 @@ export const requestWithBlob = async (requestUrl, options: Options = {}) => {
     })).then(res => {
       if (res.status === 401) {
         window.location.href = '/login?info=401';
-        localStorage.removeItem('RED_HOUSE_USERINFO');
+        localStorage.removeItem('INTEGRAL_SHOP_USER_INFO');
       } else {
         return res.blob();
       }
